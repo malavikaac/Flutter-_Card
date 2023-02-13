@@ -24,7 +24,7 @@ class Card extends StatelessWidget {
       body: Padding(
           padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Center(
                 child:CircleAvatar(
@@ -32,13 +32,17 @@ class Card extends StatelessWidget {
                   radius:50.0,
                 ),
               ),
+              Divider( 
+                height:80.0,
+                color: Color.fromARGB(255, 135, 198, 223),
+              ),
             Text('Name',
                 style: TextStyle(
                   color: Color.fromARGB(255, 206, 233, 236),
                   letterSpacing: 2.0,
                 )),
                 SizedBox(height: 10.0 ,),
-            Text('ABC',
+            Text('ABCDE',
                 style: TextStyle(
                   color: Color.fromARGB(255, 135, 208, 218),
                   letterSpacing: 2.0,
@@ -61,8 +65,9 @@ class Card extends StatelessWidget {
                   fontWeight: FontWeight.bold
                 )
                 ),
-                 SizedBox(height: 30.0),
+                 SizedBox(height: 20.0),
                  Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Icon(Icons.email,
                     color:Color.fromARGB(255, 244, 245, 245),
@@ -77,11 +82,12 @@ class Card extends StatelessWidget {
                  
                 )
                 ), 
+
                   ],
                  )
-             ]
-          )
-          ),
+               ]
+             )
+        ),
     );
   }
 }
