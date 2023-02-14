@@ -1,105 +1,38 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MaterialApp(
-      home: Card(),
+void main() => runApp(MaterialApp(
+      home: QuoteList(),
     ));
 
-class Card extends StatefulWidget {
-  const Card({super.key});
+class QuoteList extends StatefulWidget {
+  const QuoteList({super.key});
 
   @override
-  State<Card> createState() => _CardState();
+  State<QuoteList> createState() => _QuoteListState();
 }
 
-class _CardState extends State<Card> {
-  int level = 0;
+class _QuoteListState extends State<QuoteList> {
+  List<String> quotes = [
+    'The way to get started is to quit talking and begin doing',
+    '   If life were predictable it would cease to be life, and be without flavor',
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 15, 15, 15),
-      appBar: AppBar(
-        title: Text(
-          'Id_Card',
-          style:
-              TextStyle(color: Color.fromARGB(255, 19, 18, 17), fontSize: 20.0),
+        backgroundColor: Color.fromARGB(255, 143, 209, 230),
+        appBar: AppBar(
+          title: Text('Awesome Quote'),
+          centerTitle: true,
+          backgroundColor: Colors.black,
         ),
-        centerTitle: true,
-        backgroundColor: Color.fromARGB(255, 135, 208, 218),
-        elevation: 0.0,
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            level += 1;
-          });
-        },
-        child: Icon(Icons.add),
-        backgroundColor: Color.fromARGB(255, 135, 208, 218),
-      ),
-      body: Padding(
-          padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
-          child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Center(
-                  child: CircleAvatar(
-                    backgroundImage: AssetImage('assets/lap.jpg'),
-                    radius: 50.0,
-                  ),
-                ),
-                Divider(
-                  height: 80.0,
-                  color: Color.fromARGB(255, 135, 198, 223),
-                ),
-                Text('Name',
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 206, 233, 236),
-                      letterSpacing: 2.0,
-                    )),
-                SizedBox(
-                  height: 10.0,
-                ),
-                Text('ABCDE',
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 135, 208, 218),
-                        letterSpacing: 2.0,
-                        fontSize: 28.0,
-                        fontWeight: FontWeight.bold)),
-                SizedBox(
-                  height: 30.0,
-                ),
-                Text('CURRENT LEVEL',
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 206, 233, 236),
-                      letterSpacing: 2.0,
-                    )),
-                SizedBox(
-                  height: 10.0,
-                ),
-                Text('$level ',
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 135, 208, 218),
-                        letterSpacing: 2.0,
-                        fontSize: 28.0,
-                        fontWeight: FontWeight.bold)),
-                SizedBox(height: 20.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Icon(
-                      Icons.email,
-                      color: Color.fromARGB(255, 244, 245, 245),
-                    ),
-                    SizedBox(width: 10.0),
-                    Text('abcde@gmail.com',
-                        style: TextStyle(
-                          color: Color.fromARGB(255, 135, 208, 218),
-                          letterSpacing: 1.0,
-                          fontSize: 20.0,
-                        )),
-                  ],
-                )
-              ])),
-    );
+        body: Column(
+          children: quotes.map((quote) {
+            // => (quote)).tolist(),
+            SizedBox(
+              height: 80.0,
+            );
+            return Text(quote);
+          }).toList(),
+        ));
   }
 }
