@@ -1,7 +1,6 @@
-//import 'dart:html';
-
 import 'package:flutter/material.dart';
-import 'quote.dart';
+import 'package:card/quote.dart';
+import 'package:card/quote_dart';
 
 void main() => runApp(MaterialApp(
       home: QuoteList(),
@@ -24,29 +23,10 @@ class _QuoteListState extends State<QuoteList> {
         text:
             'If life were predictable it would cease to be life, and be without flavor')
   ];
-  Widget quoteTemplate(quote) {
-    return Card(
-      margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0.0),
-      child: Container(
-        
-        child: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Column(children: <Widget>[
-            Text(quote.text,
-                style: TextStyle(
-                  fontSize: 20.0,
-                  color: Color.fromARGB(255, 145, 228, 200),
-                )),
-            SizedBox(height: 6.0),
-            Text(
-              quote.author,
-              style: TextStyle(fontSize: 14.0, color: Colors.grey[800]),
-            )
-          ]),
-        ),
-      ),
-    );
-  }
+
+  // Widget quoteTemplate(quote) {
+  //   return QuoteCard(quote: quote);
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +38,9 @@ class _QuoteListState extends State<QuoteList> {
           backgroundColor: Color.fromARGB(255, 243, 161, 161),
         ),
         body: Column(
-          children: quotes.map((quote) => quoteTemplate(quote)).toList(),
+          children: quotes.map((quote) => QuoteCard(quote: quote)).toList(),
         ));
   }
 }
+
+
